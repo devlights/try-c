@@ -3,7 +3,7 @@ project(try-c)
 
 set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES src/main.c src/printf01.c)
+set(SOURCE_FILES src/main.c)
 set(INCLUDE_DIR include)
 
 include_directories(${INCLUDE_DIR})
