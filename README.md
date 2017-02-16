@@ -1,2 +1,2 @@
 # try-c
-my clang tutorial
+my clang tutorial (C11)
