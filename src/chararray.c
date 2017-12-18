@@ -1,6 +1,13 @@
 #include <stdio.h>
-#include <mem.h>
-#include <malloc.h>
+
+#ifdef _WIN32
+    #include <mem.h>
+    #include <malloc.h>
+#else
+    #include <memory.h>
+    #include <stdlib.h>
+#endif
+
 #include "chararray.h"
 
 void char_array01() {
@@ -39,8 +46,14 @@ void char_array03() {
 
     memset(strings, 0, sizeof(strings));
 
-    strncat(strings, first, (sizeof(first) - 1));
-    strncat(strings, second, (sizeof(second) - 1));
+    /* ---------------------------------------------------------------------------------------
+     * strncat(strings, first, (sizeof(first) - 1)); という風に記述していると以下の警告が出た。
+     * size argument in 'strncat' call appears to be size of the source [-Wstrncat-size]
+     *
+     * ネットで調べると、sizeofじゃなくてちゃんとstrlenしてサイズ指定しろってことらしい。
+     * --------------------------------------------------------------------------------------- */
+    strncat(strings, first, (strlen(first) - 1));
+    strncat(strings, second, (strlen(second) - 1));
 
     printf("%s\n", strings);
 }
@@ -52,7 +65,13 @@ void char_array04() {
      * strlen関数は指定した char* の文字数を返す
      * 返ってくる文字数は、最後の終端文字を除いたカウントとなる
      * -------------------------------------------------- */
-    printf("length=%d\n", strlen(strings));
+    /* --------------------------------------------------------------------------------------------------------
+     * printf("length=%d\n", strlen(strings)); って記述していると以下の警告がでた。
+     * format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+     *
+     * 書式の方は %d で int としているのに、strlen() の結果は unsigned long なので、ちゃんと %lu ってしろってことらしい。
+     * -------------------------------------------------------------------------------------------------------- */
+    printf("length=%lu\n", strlen(strings));
 
     /* --------------------------------------------------
      * 動的に確保したメモリをポインタで受取り
@@ -61,7 +80,7 @@ void char_array04() {
     char *ptr;
 
     /* メモリ確保 (必ずエラーチェックをする必要がある) */
-    ptr = (char *)malloc(sizeof(strings));
+    ptr = (char *) malloc(sizeof(strings));
     if (ptr == NULL) {
         /* メモリ確保に失敗した */
         printf("error at malloc");
@@ -75,7 +94,7 @@ void char_array04() {
     strncpy(ptr, "hello world", sizeof(strings) - 1);
 
     printf("ptr = %s\n", ptr);
-    printf("ptr length=%d\n", strlen(ptr));
+    printf("ptr length=%lu\n", strlen(ptr));
 
     /* 確保したメモリは必ず開放が必要。malloc書いた際にペアで書くほうがよい */
     free(ptr);
