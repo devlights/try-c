@@ -8,8 +8,10 @@ void char_array01() {
      * 宣言と同時に代入
      * C言語の文字列は、ただの char[] 。
      * さらに末尾に終端文字 (\0) が必要なので、実際の文字数よりも１多く確保が必要。
+     *
+     * 宣言と同時に初期化する場合のみ要素数を書かなくてよい。
      * ------------------------------------------------- */
-    char strings[12] = "hello world";
+    char strings[] = "hello world";
     printf("%s\n", strings);
 }
 
@@ -32,8 +34,8 @@ void char_array02() {
 
 void char_array03() {
     char strings[12];
-    char first[6] = "world";
-    char second[7] = " hello";
+    char first[] = "world";
+    char second[] = " hello";
 
     memset(strings, 0, sizeof(strings));
 
@@ -44,7 +46,7 @@ void char_array03() {
 }
 
 void char_array04() {
-    char strings[12] = "hello world";
+    char strings[] = "hello world";
 
     /* --------------------------------------------------
      * strlen関数は指定した char* の文字数を返す
