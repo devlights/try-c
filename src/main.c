@@ -21,7 +21,9 @@ int main() {
      * 03.Char Array
      * ------------------------------------------------ */
     do_it(char_array01, "Char Array (initialize)");
-    do_it(char_array02, "Char Array (memset)");
+    do_it(char_array02, "Char Array (memset, strncpy)");
+    do_it(char_array03, "Char Array (strncat)");
+    do_it(char_array04, "Char Array (strlen)");
 
     printf("|||||||||||||||||  end  |||||||||||||||||\n");
 
