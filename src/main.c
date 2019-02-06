@@ -3,6 +3,7 @@
 #include "helloworld.h"
 #include "forloop.h"
 #include "chararray.h"
+#include "misc.h"
 
 int main() {
     printf("||||||||||||||||| start |||||||||||||||||\n");
@@ -24,6 +25,11 @@ int main() {
     do_it(char_array02, "Char Array (memset, strncpy)");
     do_it(char_array03, "Char Array (strncat)");
     do_it(char_array04, "Char Array (strlen)");
+
+    /* ------------------------------------------------
+     * 99.Misc
+     * ------------------------------------------------ */
+    do_it(detect_c_lang_version, "Detect C Lang Version");
 
     printf("|||||||||||||||||  end  |||||||||||||||||\n");
 
