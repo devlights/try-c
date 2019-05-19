@@ -1,7 +1,3 @@
-//
-// Created by kusaka on 2019/02/06.
-//
-
 #include <stdio.h>
 #include "misc.h"
 
