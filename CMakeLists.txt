@@ -9,8 +9,8 @@ set(CMAKE_C_STANDARD 11)
 # ---------------------------------------------
 # 対象ファイルリストを構築
 # ---------------------------------------------
-file(GLOB HEADER_FILES include/*.h)
-file(GLOB SOURCE_FILES src/*.c)
+file(GLOB_RECURSE HEADER_FILES include/*.h)
+file(GLOB_RECURSE SOURCE_FILES src/*.c)
 
 # ---------------------------------------------
 # インクルードファイルがあるディレクトリを設定

@@ -39,8 +39,3 @@ cmake-build-debug/
 # Build directory
 build/
 
-# CMake
-CMakeCache.txt
-CMakeFiles/
-Makefile
-cmake_install.cmake
