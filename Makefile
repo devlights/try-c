@@ -2,16 +2,16 @@
 all: clean run
 
 clean:
-	rm -rf build/
+	rm -rf cmake-build-debug/
 
 build:
-	mkdir -p build && \
-	cd build && \
+	mkdir -p cmake-build-debug && \
+	cd cmake-build-debug && \
 	cmake .. && \
 	make
 
 run: build
-	cd build && \
+	cd cmake-build-debug && \
 	./tryc
 
 .PHONY: all build run clean
