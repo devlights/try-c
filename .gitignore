@@ -36,7 +36,10 @@
 .idea/
 cmake-build-debug/
 
-# cmake
+# Build directory
+build/
+
+# CMake
 CMakeCache.txt
 CMakeFiles/
 Makefile
