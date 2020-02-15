@@ -8,7 +8,6 @@
     #include <stdlib.h>
 #endif
 
-#include "chararray.h"
 
 void char_array01() {
     /* -------------------------------------------------

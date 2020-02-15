@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "misc.h"
 
 void detect_c_lang_version() {
     // 自分が使うコンパイラが、どのバージョンに対応しているのかを確認できる
