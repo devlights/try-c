@@ -30,4 +30,4 @@ include_directories(include)
 # ---------------------------------------------
 # コンパイル設定
 # ---------------------------------------------
-add_executable(tryc ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(try-c ${SOURCE_FILES} ${HEADER_FILES})

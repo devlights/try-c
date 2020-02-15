@@ -12,6 +12,6 @@ build:
 
 run: build
 	cd cmake-build-debug && \
-	./tryc
+	./try-c
 
 .PHONY: all build run clean
