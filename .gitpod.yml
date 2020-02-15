@@ -1,4 +1,8 @@
 tasks:
-  - init: make build
+  - init: go env -w GO111MODULE=off &&
+          go get -v github.com/devlights/mkghurl &&
+          go env -u GO111MODULE &&
+          make build &&
+          if [ "$GITHUB_TOKEN" != "" ]; then git remote set-url origin $(mkghurl try-c); fi
 image:
   file: .gitpod.Dockerfile
