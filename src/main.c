@@ -1,33 +1,34 @@
 #include <stdio.h>
+#include <string.h>
 #include "examples.h"
 
 int main() {
-    printf("||||||||||||||||| start |||||||||||||||||\n");
 
-    /* ------------------------------------------------
-     * 00.HelloWorld
-     * ------------------------------------------------ */
-    do_it(basic_hello_world01, "hello world");
+    for(;;) {
+        char buffer[256] = "";
 
-    /* ------------------------------------------------
-     * 10.For Loop
-     * ------------------------------------------------ */
-    do_it(basic_for_loop01, "For Loop");
+        // 最大で255文字まで読み取って残りは読み飛ばす
+        printf("ENTER INPUT NAME: ");
+        if (scanf("%255[^\n]%*[^\n]", buffer) == EOF) {
+            return 1;
+        }
+        scanf("%*c"); // 残った改行を読み飛ばす
 
-    /* ------------------------------------------------
-     * 20.Char Array
-     * ------------------------------------------------ */
-    do_it(basic_char_array01, "Char Array (initialize)");
-    do_it(basic_char_array02, "Char Array (memset, strncpy)");
-    do_it(basic_char_array03, "Char Array (strncat)");
-    do_it(basic_char_array04, "Char Array (strlen)");
+        printf("[INPUT] %s\n", buffer);
+        if (strlen(buffer) == 0) {
+            continue;
+        }
 
-    /* ------------------------------------------------
-     * 99.Misc
-     * ------------------------------------------------ */
-    do_it(basic_detect_c_lang_version, "Detect C Lang Version");
+        if (strncmp(buffer, "quit", 4) == 0) {
+            break;
+        }
 
-    printf("|||||||||||||||||  end  |||||||||||||||||\n");
+        printf("||||||||||||||||| start |||||||||||||||||\n");
+        // do_it(basic_hello_world01, "hello world");
+        printf("|||||||||||||||||  end  |||||||||||||||||\n");
+    }
+
+    printf("DONE\n");
 
     return 0;
 }
