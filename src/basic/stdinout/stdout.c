@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void basic_printf_series() {
+void basic_stdout_series() {
     int i  = 10;
     int *p = &i;
 

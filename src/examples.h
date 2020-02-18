@@ -47,6 +47,8 @@ void basic_for_loop01();
 
 void basic_detect_c_lang_version();
 
-void basic_printf_series();
+void basic_stdout_series();
+
+void basic_stdin_series();
 
 #endif //TRY_C_EXAMPLES_H
