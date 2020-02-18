@@ -1,9 +1,5 @@
 #include <stdio.h>
-#include "commonfuncs.h"
-#include "helloworld.h"
-#include "forloop.h"
-#include "chararray.h"
-#include "misc.h"
+#include "examples.h"
 
 int main() {
     printf("||||||||||||||||| start |||||||||||||||||\n");
@@ -11,25 +7,25 @@ int main() {
     /* ------------------------------------------------
      * 00.HelloWorld
      * ------------------------------------------------ */
-    do_it(hello_world01, "hello world");
+    do_it(basic_hello_world01, "hello world");
 
     /* ------------------------------------------------
      * 10.For Loop
      * ------------------------------------------------ */
-    do_it(for_loop01, "For Loop");
+    do_it(basic_for_loop01, "For Loop");
 
     /* ------------------------------------------------
      * 20.Char Array
      * ------------------------------------------------ */
-    do_it(char_array01, "Char Array (initialize)");
-    do_it(char_array02, "Char Array (memset, strncpy)");
-    do_it(char_array03, "Char Array (strncat)");
-    do_it(char_array04, "Char Array (strlen)");
+    do_it(basic_char_array01, "Char Array (initialize)");
+    do_it(basic_char_array02, "Char Array (memset, strncpy)");
+    do_it(basic_char_array03, "Char Array (strncat)");
+    do_it(basic_char_array04, "Char Array (strlen)");
 
     /* ------------------------------------------------
      * 99.Misc
      * ------------------------------------------------ */
-    do_it(detect_c_lang_version, "Detect C Lang Version");
+    do_it(basic_detect_c_lang_version, "Detect C Lang Version");
 
     printf("|||||||||||||||||  end  |||||||||||||||||\n");
 

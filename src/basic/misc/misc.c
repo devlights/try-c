@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void detect_c_lang_version() {
+void basic_detect_c_lang_version() {
     // 自分が使うコンパイラが、どのバージョンに対応しているのかを確認できる
     //
     // __STDC_VERSION__ の値が

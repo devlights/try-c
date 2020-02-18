@@ -9,7 +9,7 @@
 #endif
 
 
-void char_array01() {
+void basic_char_array01() {
     /* -------------------------------------------------
      * 宣言と同時に代入
      * C言語の文字列は、ただの char[] 。
@@ -21,7 +21,7 @@ void char_array01() {
     printf("%s\n", strings);
 }
 
-void char_array02() {
+void basic_char_array02() {
     char strings[12];
 
     /* --------------------------------------------------
@@ -38,7 +38,7 @@ void char_array02() {
     printf("%s\n", strings);
 }
 
-void char_array03() {
+void basic_char_array03() {
     char strings[12];
     char first[] = "world";
     char second[] = " hello";
@@ -57,7 +57,7 @@ void char_array03() {
     printf("%s\n", strings);
 }
 
-void char_array04() {
+void basic_char_array04() {
     char strings[] = "hello world";
 
     /* --------------------------------------------------
