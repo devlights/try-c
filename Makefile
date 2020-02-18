@@ -7,7 +7,7 @@ clean:
 build:
 	mkdir -p cmake-build-debug && \
 	cd cmake-build-debug && \
-	cmake -D CMAKE_EXPORT_COMPILE_COMMANDS=1 .. && \
+	cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. && \
 	make
 
 run: build
