@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "examples.h"
 
-int example_count = 0;
+int     example_count = 0;
 example examples[MAX_EXAMPLE_COUNT];
 
 void make_mappings() {
@@ -21,6 +21,7 @@ void make_mappings() {
     examples[index++] = (example) {"basic_chararray_04", basic_char_array04};
     examples[index++] = (example) {"basic_forloop_01", basic_for_loop01};
     examples[index++] = (example) {"basic_detect_c_version", basic_detect_c_lang_version};
+    examples[index++] = (example) {"basic_printf_series", basic_printf_series};
 
     example_count = index;
 }

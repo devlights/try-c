@@ -15,13 +15,14 @@
  */
 typedef struct example {
     char name[50];
+
     void (*func)();
 } example;
 
 /*
  * data
  */
-extern int example_count;
+extern int     example_count;
 extern example examples[MAX_EXAMPLE_COUNT];
 
 /*
@@ -45,5 +46,7 @@ void basic_char_array04();
 void basic_for_loop01();
 
 void basic_detect_c_lang_version();
+
+void basic_printf_series();
 
 #endif //TRY_C_EXAMPLES_H
