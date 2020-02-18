@@ -38,3 +38,6 @@ cmake-build-debug/
 
 # VSCode
 .vscode/
+
+# theia
+.theia/

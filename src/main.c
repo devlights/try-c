@@ -1,34 +1,82 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 #include "examples.h"
 
+static void show_example_names();
+
+static void show_help();
+
 int main() {
-    printf("||||||||||||||||| start |||||||||||||||||\n");
 
-    /* ------------------------------------------------
-     * 00.HelloWorld
-     * ------------------------------------------------ */
-    do_it(basic_hello_world01, "hello world");
+    make_mappings();
 
-    /* ------------------------------------------------
-     * 10.For Loop
-     * ------------------------------------------------ */
-    do_it(basic_for_loop01, "For Loop");
+    for (;;) {
+        char buffer[256] = "";
 
-    /* ------------------------------------------------
-     * 20.Char Array
-     * ------------------------------------------------ */
-    do_it(basic_char_array01, "Char Array (initialize)");
-    do_it(basic_char_array02, "Char Array (memset, strncpy)");
-    do_it(basic_char_array03, "Char Array (strncat)");
-    do_it(basic_char_array04, "Char Array (strlen)");
+        // 最大で255文字まで読み取って残りは読み飛ばす
+        printf("ENTER INPUT NAME: ");
+        if (scanf("%255[^\n]%*[^\n]", buffer) == EOF) {
+            return 1;
+        }
+        scanf("%*c"); // 残った改行を読み飛ばす
 
-    /* ------------------------------------------------
-     * 99.Misc
-     * ------------------------------------------------ */
-    do_it(basic_detect_c_lang_version, "Detect C Lang Version");
+        printf("[INPUT] %s\n", buffer);
 
-    printf("|||||||||||||||||  end  |||||||||||||||||\n");
+        size_t len = strlen(buffer);
+        if (strlen(buffer) == 0) {
+            continue;
+        }
+
+        if (strncmp(buffer, "quit", 4) == 0) {
+            break;
+        }
+
+        if (strncmp(buffer, "list", 4) == 0) {
+            show_example_names();
+            continue;
+        }
+
+        if (strncmp(buffer, "help", 4) == 0) {
+            show_help();
+            continue;
+        }
+
+        int found = false;
+        for (int i = 0; i < example_count; i++) {
+            example e = examples[i];
+            if (strncmp(e.name, buffer, len) == 0) {
+                printf("===== [%s] =====\n", e.name);
+                e.func();
+                printf("===== [%s] =====\n\n", e.name);
+
+                found = true;
+                break;
+            }
+        }
+
+        if (found == true) {
+            break;
+        } else {
+            printf("not found...try again\n");
+            continue;
+        }
+    }
+
+    printf("DONE\n");
 
     return 0;
+}
+
+void show_help() {
+    printf("list -- show all example names\n");
+    printf("quit -- exit program\n");
+}
+
+void show_example_names() {
+    for (int i = 0; i < example_count; i++) {
+        example e = examples[i];
+        printf("%s\n", e.name);
+    }
 }
 
