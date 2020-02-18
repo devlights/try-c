@@ -2,6 +2,7 @@
 my clang tutorial (C11)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-c/badge)](https://www.codefactor.io/repository/github/devlights/try-c)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-c) 
 
 ## VSCode Settings
 
@@ -26,3 +27,7 @@ my clang tutorial (C11)
     "version": 4
 }
 ```
+
+## Reference
+
+- [ソースコードの分割](https://programming.pc-note.net/c/header.html)

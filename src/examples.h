@@ -1,6 +1,9 @@
 #pragma once
 
-#include "../include/commonfuncs.h"
+/*
+    common
+*/
+void do_it(void (*func)(), char *message);
 
 /*
     basic
