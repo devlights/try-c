@@ -5,7 +5,9 @@ tasks:
           make build
     command: if [ -n "$GITHUB_TOKEN" ]; then git remote set-url origin $(mkghurl try-c); fi &&
              cc --version | head -n 1 &&
-             c++ --version | head -n 1
+             c++ --version | head -n 1 &&
+             gcc --version | head -n 1 &&
+             cmake --version | head -n 1
 image:
   file: .gitpod.Dockerfile
 
