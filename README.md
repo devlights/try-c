@@ -1,8 +1,21 @@
 # try-c
-my clang tutorial (C11)
+This is my TUTORIAL project for C.
 
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-c/badge)](https://www.codefactor.io/repository/github/devlights/try-c)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-c) 
+
+## Environment
+
+```shell
+$ cc --version | head -n 1
+cc (Ubuntu 8.3.0-6ubuntu1) 8.3.0
+$ c++ --version | head -n 1
+c++ (Ubuntu 8.3.0-6ubuntu1) 8.3.0
+$ gcc --version | head -n 1
+gcc (Ubuntu 8.3.0-6ubuntu1) 8.3.0
+$ cmake --version | head -n 1
+cmake version 3.16.2
+```
 
 ## VSCode Settings
 
