@@ -37,7 +37,9 @@ void basic_char_array02() {
      * 文字配列の最後の１バイトは、終端文字が入る部分なので -1 が必要.
      * -------------------------------------------------- */
     helloworld[HELLOWORLD_STR_LEN - 1] = '\0';
-    strncpy(strings, helloworld, (HELLOWORLD_STR_LEN - 1));
+    if (helloworld != NULL) {
+        strncpy(strings, helloworld, (HELLOWORLD_STR_LEN - 1));
+    }
     strings[HELLOWORLD_STR_LEN - 1] = '\0';
 
     printf("%s\n", strings);
