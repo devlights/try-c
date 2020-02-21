@@ -8,6 +8,7 @@
     #include <stdlib.h>
 #endif
 
+#define HELLOWORLD_STR_LEN 12
 
 void basic_char_array01() {
     /* -------------------------------------------------
@@ -22,7 +23,7 @@ void basic_char_array01() {
 }
 
 void basic_char_array02() {
-    char strings[12];
+    char strings[HELLOWORLD_STR_LEN];
 
     /* --------------------------------------------------
      * 利用する前に必ずバッファをゼロクリア
@@ -34,12 +35,18 @@ void basic_char_array02() {
      * 対象となる文字列をコピー
      * 文字配列の最後の１バイトは、終端文字が入る部分なので -1 が必要.
      * -------------------------------------------------- */
-    strncpy(strings, "hello world", (sizeof(strings) - 1));
+    size_t len_strings = strlen(strings);
+    size_t len_helloworld = strlen("hello world");
+
+    if (len_helloworld <= len_strings) {
+        strncpy(strings, "hello world", (sizeof(strings) - 1));
+    }
+
     printf("%s\n", strings);
 }
 
 void basic_char_array03() {
-    char strings[12];
+    char strings[HELLOWORLD_STR_LEN];
     char first[] = "world";
     char second[] = " hello";
 
