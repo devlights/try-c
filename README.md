@@ -1,6 +1,7 @@
 # try-c
 This is my TUTORIAL project for C.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/07655e54db184c08b21e3fa73bb230cd)](https://www.codacy.com/manual/devlights/try-c?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=devlights/try-c&amp;utm_campaign=Badge_Grade)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-c) 
 
 ## Environment
