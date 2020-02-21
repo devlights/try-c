@@ -36,11 +36,11 @@ void basic_char_array02() {
      * 対象となる文字列をコピー
      * 文字配列の最後の１バイトは、終端文字が入る部分なので -1 が必要.
      * -------------------------------------------------- */
-    helloworld[HELLOWORLD_STR_LEN - 1] = '\0';
-    if (helloworld != NULL) {
+    if (strings != NULL) {
+        helloworld[HELLOWORLD_STR_LEN - 1] = '\0';
         strncpy(strings, helloworld, (HELLOWORLD_STR_LEN - 1));
+        strings[HELLOWORLD_STR_LEN - 1] = '\0';
     }
-    strings[HELLOWORLD_STR_LEN - 1] = '\0';
 
     printf("%s\n", strings);
 }
