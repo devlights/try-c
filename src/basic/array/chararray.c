@@ -35,7 +35,7 @@ void basic_char_array02() {
      * 対象となる文字列をコピー
      * 文字配列の最後の１バイトは、終端文字が入る部分なので -1 が必要.
      * -------------------------------------------------- */
-    if (strings[HELLOWORLD_STR_LEN] != '\0') {
+    if (strings[HELLOWORLD_STR_LEN - 1] != '\0') {
         return;
     }
 
