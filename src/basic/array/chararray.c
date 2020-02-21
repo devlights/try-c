@@ -24,6 +24,7 @@ void basic_char_array01() {
 
 void basic_char_array02() {
     char strings[HELLOWORLD_STR_LEN];
+    char helloworld[] = "hello world";
 
     /* --------------------------------------------------
      * 利用する前に必ずバッファをゼロクリア
@@ -35,15 +36,14 @@ void basic_char_array02() {
      * 対象となる文字列をコピー
      * 文字配列の最後の１バイトは、終端文字が入る部分なので -1 が必要.
      * -------------------------------------------------- */
-    if (strings[HELLOWORLD_STR_LEN - 1] != '\0') {
-        return;
-    }
+    strings[HELLOWORLD_STR_LEN - 1] = '\0';
+    helloworld[HELLOWORLD_STR_LEN - 1] = '\0';
 
     size_t len_strings = strlen(strings);
-    size_t len_helloworld = strlen("hello world");
+    size_t len_helloworld = strlen(helloworld);
 
     if (len_helloworld <= len_strings) {
-        strncpy(strings, "hello world", (sizeof(strings) - 1));
+        strncpy(strings, helloworld, (HELLOWORLD_STR_LEN - 1));
     }
 
     printf("%s\n", strings);
