@@ -17,6 +17,39 @@ $ cmake --version | head -n 1
 cmake version 3.16.2
 ```
 
+## Editor
+
+- JetBrains CLion
+- VSCode
+
+## Build
+
+```shell script
+$ make
+$
+```
+
+## Show avaiable examples
+
+```shell script
+$ make list
+$
+```
+
+## Run
+
+```shell script
+$ make run example=example name
+$
+```
+
+### e.g: Run helloworld example
+
+```shell script
+$ make run example=helloworld
+$
+```
+
 ## VSCode Settings
 
 - ```.vscode/c_cpp_properties.json```
