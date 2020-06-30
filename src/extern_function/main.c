@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdint.h>
 
-extern u_int16_t add(u_int8_t x, u_int8_t y);
-static bool concat(char* result, rsize_t len, const char* x, const char* y);
+extern int add(int x, int y);
+static bool concat(char* result, size_t len, const char* x, const char* y);
 
 // extern_function -- 外部で宣言された関数を利用するためにプロトタイプ宣言が必要であることを示すサンプルです.
 //
@@ -16,8 +16,8 @@ static bool concat(char* result, rsize_t len, const char* x, const char* y);
 //   - https://www.jpcert.or.jp/sc-rules/c-int01-c.html
 //   - https://stackoverflow.com/questions/50399090/use-of-a-signed-integer-operand-with-a-binary-bitwise-operator-when-using-un
 int main(void) {
-    u_int8_t x = 1;
-    u_int8_t y = 2;
+    int x = 1;
+    int y = 2;
 
     // -----------------------------------------------
     // add() は、 sub.c 側で定義されている関数
@@ -29,7 +29,7 @@ int main(void) {
     //
     // これを防ぐためには、関数プロトタイプを宣言しておく必要がある.
     // -----------------------------------------------
-    u_int16_t r = add(x, y);
+    int r = add(x, y);
     printf("result: %d\n", r);
 
     // const char*      : 定数データへのポインタ。中身の変更不可、アドレス変更可能
@@ -37,8 +37,12 @@ int main(void) {
     // const char* const: 定数データへの定数ポインタ。中身の変更不可、アドレス変更不可
     const char* const m1 = "hello";
     const char* const m2 = "world";
-    const rsize_t BUF_SIZE = 128;
-    char buf[BUF_SIZE] = {};
+    const size_t BUF_SIZE = 128;
+
+    char buf[BUF_SIZE];
+    for (size_t i = 0; i < BUF_SIZE; i++) {
+        buf[i] = 0;
+    }
 
     // concat() は、自身の中で定義されている関数であるが main() よりも
     // 後に記載されている。そのため、コンパイル時に発見できないためプロトタイプ宣言が必要
@@ -52,8 +56,8 @@ int main(void) {
     return 0;
 }
 
-static bool concat(char* result, rsize_t len, const char* x, const char* y) {
-    if (len < 0 || len > RSIZE_MAX) {
+static bool concat(char* result, size_t len, const char* x, const char* y) {
+    if (len < 0 || len > (SIZE_MAX >> 1u)) {
         return false;
     }
 

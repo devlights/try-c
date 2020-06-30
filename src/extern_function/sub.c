@@ -1,6 +1,5 @@
-#include <stdio.h>
 
 // add -- サンプル用の関数です.
-u_int16_t add(u_int8_t x, u_int8_t y) {
+int add(int x, int y) {
     return x + y;
 }
