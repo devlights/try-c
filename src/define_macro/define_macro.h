@@ -1,0 +1,6 @@
+#ifndef TRY_C_DEFINE_MACRO_H
+#define TRY_C_DEFINE_MACRO_H
+
+#define VALUE2 200
+
+#endif //TRY_C_DEFINE_MACRO_H
