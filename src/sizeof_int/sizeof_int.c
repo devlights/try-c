@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
     // sizeof() は、size_t を返す
@@ -7,5 +8,5 @@ int main(void) {
     // size_t は unsigned long なので %lu を指定
     printf("sizeof(int): %lu bytes, %lu bits\n", intSize, intSize*8);
 
-    return 0;
+    return EXIT_SUCCESS;
 }

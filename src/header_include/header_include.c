@@ -11,6 +11,7 @@
 // このヘッダーファイルは、標準ヘッダーファイルなので、何もしなくても最初から見えている。
 // CMakeLists.txt でも特に設定しなくても見えている。
 #include <stdio.h>
+#include <stdlib.h>
 
 // このヘッダーファイルは、ソースファイルと同一ディレクトリにあるので、何もしなくてもサーチパスに入っている。
 // CMakeLists.txt でも特に設定しなくても見えている。
@@ -49,5 +50,5 @@ int main(void) {
 
     printf("[point3] x=%d\ty=%d\n", p3.x, p3.y);
 
-    return 0;
+    return EXIT_SUCCESS;
 }

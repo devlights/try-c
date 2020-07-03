@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
 
@@ -52,7 +53,7 @@ int main(void) {
 
     printf("%s\n", buf);
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 static bool concat(char* result, size_t len, const char* x, const char* y) {

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // main_function -- main 関数のサンプルです.
 //
@@ -19,6 +20,6 @@ int main(void) {
     printf("\tint main(int argc, char **argv)\n");
     printf("のどれかで無いといけない");
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 

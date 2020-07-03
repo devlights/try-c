@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // forloop -- for-loop の サンプルです.
 int main(void) {
@@ -6,6 +7,6 @@ int main(void) {
         printf("%d\n", i);
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 

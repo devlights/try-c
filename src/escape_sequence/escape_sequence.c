@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -62,5 +63,5 @@ int main(void) {
     len = strnlen(s1, 10);
     printf("[strnlen] len=%d\n", (int) len); // lenの値は 6 以上 10 以下 となる
 
-    return 0;
+    return EXIT_SUCCESS;
 }
