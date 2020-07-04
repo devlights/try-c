@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
 project(try-c)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_C_FLAGS "-Wall")
 
 add_subdirectory(src/helloworld)
 add_subdirectory(src/forloop)
@@ -14,3 +11,4 @@ add_subdirectory(src/define_macro)
 add_subdirectory(src/sizeof_int)
 add_subdirectory(src/return_exit_success)
 add_subdirectory(src/bool_type)
+add_subdirectory(src/static_lib)
