@@ -36,11 +36,5 @@
 .idea/
 cmake-build-debug/
 
-# VSCode
-.vscode/
-
-# theia
-.theia/
-
 # clangd
 .clangd/
