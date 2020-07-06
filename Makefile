@@ -36,6 +36,6 @@ clean_samplelib:
 .PHONY: build_samplelib
 build_samplelib:
 	cd sample_shared_lib/ && \
-	mkdir build && \
+	mkdir -p build && \
 	cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -S . -B build && \
 	cmake --build build
