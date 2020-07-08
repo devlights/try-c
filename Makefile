@@ -30,7 +30,7 @@ run: build
 .PHONY: clean_samplelib
 clean_samplelib:
 	cd sample_shared_lib/ && \
-	cmake --build build --target clean && \
+	if [ -d "build" ];then cmake --build build --target clean; else true; fi && \
 	rm -rf build
 
 .PHONY: build_samplelib
