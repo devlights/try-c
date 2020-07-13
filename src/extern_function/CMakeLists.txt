@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 project(extern_function
         DESCRIPTION "他のファイルで定義されている関数を呼び出すサンプル"
         LANGUAGES C)

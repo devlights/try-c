@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 project(return_exit_success
         DESCRIPTION "stdlib.h の EXIT_SUCCESS を利用するサンプル"
         LANGUAGES C)
