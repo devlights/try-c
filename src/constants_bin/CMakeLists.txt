@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 project(constants_bin
         DESCRIPTION "2進数定数のサンプル"
         LANGUAGES C)

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 project(static_lib
         DESCRIPTION "静的ライブラリのサンプル"
         LANGUAGES C)

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 project(sample_shared_lib
         DESCRIPTION "サンプル共有ライブラリ"
         LANGUAGES C)
