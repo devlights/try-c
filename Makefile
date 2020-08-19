@@ -1,4 +1,4 @@
-example := dummy
+target := helloworld
 CMAKE_DIR := cmake-build-debug
 
 .PHONY: all
@@ -15,6 +15,10 @@ build: build_samplelib
 	cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .. && \
 	cmake --build .
 
+.PHONY: build-target
+build-target:
+	cmake --build $(CMAKE_DIR) --target ${target} --clean-first
+
 .PHONY: list
 list: build
 	cd $(CMAKE_DIR)/src && \
@@ -22,10 +26,10 @@ list: build
 	ls | sed -e 's/\s+/\r/g' | sort
 
 .PHONY: run
-run: build
-	cd $(CMAKE_DIR)/src/${example} && \
-	echo "***** START [${example}] *****" && \
-	./${example}
+run: build-target
+	cd $(CMAKE_DIR)/src/${target} && \
+	echo "***** START [${target}] *****" && \
+	./${target}
 
 .PHONY: clean_samplelib
 clean_samplelib:
