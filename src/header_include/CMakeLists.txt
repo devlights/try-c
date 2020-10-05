@@ -5,5 +5,5 @@ project(header_include
 
 add_executable(header_include header_include.c)
 target_compile_features(${PROJECT_NAME} PRIVATE c_std_11)
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall)
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
 target_include_directories(${PROJECT_NAME} PRIVATE include)
