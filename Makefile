@@ -29,7 +29,8 @@ list: build
 run: build-target
 	@cd $(CMAKE_DIR)/src/${target} && \
 	echo "***** START [${target}] *****" && \
-	./${target}
+	./${target} && \
+	echo "*****  END  [${target}] *****"
 
 .PHONY: clean_samplelib
 clean_samplelib:
