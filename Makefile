@@ -17,7 +17,7 @@ build: build_samplelib
 
 .PHONY: build-target
 build-target:
-	@cmake --build $(CMAKE_DIR) --target ${target} --clean-first --quiet
+	@cmake --build $(CMAKE_DIR) --target ${target} --clean-first
 
 .PHONY: list
 list: build
