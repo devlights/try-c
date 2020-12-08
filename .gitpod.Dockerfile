@@ -7,5 +7,3 @@ RUN cd libCello-2.1.0 \
     && make check \
     && make \
     && sudo make install
-
-ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
