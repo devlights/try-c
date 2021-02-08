@@ -1,9 +1,15 @@
 FROM gitpod/workspace-full
 
-RUN wget http://libcello.org/static/libCello-2.1.0.tar.gz \
-    && tar -zxf libCello-2.1.0.tar.gz
+USER gitpod
 
-RUN cd libCello-2.1.0 \
-    && make check \
-    && make \
-    && sudo make install
+# Install custom tools, runtime, etc. using apt-get
+# For example, the command below would install "bastet" - a command line tetris clone:
+#
+# RUN sudo apt-get -q update && \
+#     sudo apt-get install -yq bastet && \
+#     sudo rm -rf /var/lib/apt/lists/*
+#
+# More information: https://www.gitpod.io/docs/config-docker/
+RUN sudo apt -q update && \
+    sudo apt install -yq bc lsof && \
+    sudo rm -rf /var/lib/apt/lists/*
