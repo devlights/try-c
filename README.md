@@ -12,3 +12,9 @@ This is my TUTORIAL project for C.
 
 1. Go to the directory of the sample you want to run.
 2. run make
+
+### Example
+
+```sh
+$ (cd examples/helloworld/; make)
+```
