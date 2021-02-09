@@ -1,4 +1,7 @@
+APP := $(shell basename $(PWD))
+SRC := $(shell find . -name "*.c" -type f)
+
 run:
-	@gcc -o helloworld -std=c11 -Wall -Wextra helloworld.c
-	@./helloworld
-	@rm -f ./helloworld
+	@gcc -o $(APP) -std=c11 -Wall -Wextra $(SRC)
+	@./$(APP)
+	@rm -f ./$(APP)
