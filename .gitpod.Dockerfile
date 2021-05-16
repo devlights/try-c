@@ -10,6 +10,6 @@ USER gitpod
 #     sudo rm -rf /var/lib/apt/lists/*
 #
 # More information: https://www.gitpod.io/docs/config-docker/
-RUN sudo apt -q update && \
-    sudo apt install -yq bc lsof && \
+RUN sudo apt-get -q update && \
+    sudo apt-get install -yq bc lsof tree && \
     sudo rm -rf /var/lib/apt/lists/*
