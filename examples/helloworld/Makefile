@@ -1,7 +1,7 @@
 APP := $(shell basename $(PWD))
-SRC := $(shell find . -name "*.c" -type f)
+SRC := $(shell find $(PWD) -name "*.c" -type f)
 
 run:
 	@gcc -o $(APP) -std=c11 -Wall -Wextra $(SRC)
-	@./$(APP)
-	@rm -f ./$(APP)
+	@$(PWD)/$(APP)
+	@rm -f $(PWD)/$(APP)
