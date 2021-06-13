@@ -4,6 +4,6 @@
 
 |name|description|exec|
 |----|------------|----|
-|helloworld|THE HelloWorld|$(cd examples/helloworld/; make)|
+|helloworld|THE HelloWorld|make -f examples/helloworld/Makefile|
 
 
