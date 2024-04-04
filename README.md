@@ -16,12 +16,6 @@ This is my TUTORIAL project for C.
 ### Example
 
 ```sh
-$ cd examples/helloworld
-$ make
-```
-
-or
-
-```sh
-$ make -f examples/helloworld/Makefile
+$ cd 01.helloworld
+$ make run
 ```
