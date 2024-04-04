@@ -8,11 +8,11 @@ CFLAGS  = -g -O0 -Wall -Wextra -std=c17
 LDFLAGS =
 LDLIBS  =
 
-$(PROGRAM): $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(DESTDIR)/$(PROGRAM) $(OBJS) $(LDLIBS)
-
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCDIRS)
+
+$(PROGRAM): $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(DESTDIR)/$(PROGRAM) $(OBJS) $(LDLIBS)
 
 .PHONY: build
 build: $(PROGRAM)
