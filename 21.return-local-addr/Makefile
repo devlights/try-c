@@ -12,7 +12,7 @@ CC           ?= clang
 CFLAGS       += -g -O0 -Wall -Wextra -std=c17
 LDFLAGS      += $(shell find $(CURDIR) -type f -name '*.so' -exec dirname {} \; | sort | uniq)
 EXT_LDFLAGS  +=
-LDLIBS       +=
+LDLIBS       += $(patsubst lib%.so,%,$(notdir $(shell find $(CURDIR) -type f -name 'lib*.so')))
 EXT_LDLIBS   +=
 
 all: run                            ## デフォルトタスク (run)
@@ -39,9 +39,9 @@ help:                               ## ヘルプを表示します
 %.d: %.c
 	$(CC) $(CFLAGS) -MM -MF $@ $<
 
-# clean ターゲットが指定されていない場合のみ依存関係ファイルを include
+# clean or help ターゲットが指定されていない場合のみ依存関係ファイルを include
 # (2)
-ifeq ($(filter clean,$(MAKECMDGOALS)),)
+ifeq ($(filter clean help,$(MAKECMDGOALS)),)
 -include $(DEPS)
 endif
 
