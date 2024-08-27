@@ -15,11 +15,11 @@ EXT_LDFLAGS  +=
 LDLIBS       +=
 EXT_LDLIBS   +=
 
+all: run                            ## デフォルトタスク (run)
+
 debug:
 	@echo SRCS=$(SRCS)
 	@echo INCDIRS=$(INCDIRS)
-
-all: run                            ## デフォルトタスク (run)
 
 clean:                              ## 成果物をクリアします
 	$(RM) $(OBJS) $(DEPS) $(PROGRAM_PATH) 
