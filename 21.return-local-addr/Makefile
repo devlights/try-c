@@ -5,12 +5,15 @@ PROGRAM      := app
 PROGRAM_PATH := $(DESTDIR)/$(PROGRAM)
 SRCS         := $(shell find $(CURDIR) -name '*.c' -type f)
 INCDIRS      += $(shell find $(CURDIR) -type f -name '*.h' -exec dirname {} \; | sort | uniq)
+EXT_INCDIRS  +=
 OBJS         := $(SRCS:%.c=%.o)
 DEPS         := $(SRCS:%.c=%.d)
 CC           ?= clang
 CFLAGS       += -g -O0 -Wall -Wextra -std=c17
-LDFLAGS      +=
+LDFLAGS      += $(shell find $(CURDIR) -type f -name '*.so' -exec dirname {} \; | sort | uniq)
+EXT_LDFLAGS  +=
 LDLIBS       +=
+EXT_LDLIBS   +=
 
 debug:
 	@echo SRCS=$(SRCS)
@@ -45,13 +48,13 @@ endif
 # コンパイルステップ
 # (1)
 %.o: %.c %.d
-	$(CC) $(CFLAGS) -c $< -o $@ $(addprefix -I,$(INCDIRS))
+	$(CC) $(CFLAGS) -c $< -o $@ $(addprefix -I,$(INCDIRS)) $(addprefix -I,$(EXT_INCDIRS))
 
 # (2)
 $(OBJS): $(SRCS)
 
 # (3)
 $(PROGRAM): $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(PROGRAM_PATH) $(OBJS) $(LDLIBS)
+	$(CC) $(CFLAGS) $(addprefix -L,$(LDFLAGS)) $(addprefix -L,$(EXT_LDFLAGS)) -o $(PROGRAM_PATH) $(OBJS) $(addprefix -l,$(LDLIBS)) $(addprefix -l,$(EXT_LDLIBS))
 
 .PHONY: all build clean run help
