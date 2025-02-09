@@ -110,3 +110,9 @@ fabric.properties
 
 # ctags
 tags
+
+*.gcno
+*.gcda
+*.gcov
+*.d
+app
