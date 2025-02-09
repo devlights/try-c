@@ -1,0 +1,12 @@
+# 変数宣言の位置揃え設定
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true
+
+# インデント幅を4に設定
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# 自動改行を無効化
+ColumnLimit: 0
+
