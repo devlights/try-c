@@ -1,21 +1,31 @@
+TIMESTAMP    := $(shell date "+%Y%m%d%H%M%S")
 THIS_FILE    := $(CURDIR)/$(firstword $(MAKEFILE_LIST))
+
 SRCDIR       := $(CURDIR)
 DESTDIR      := $(CURDIR)
+
 PROGRAM      := app
 PROGRAM_PATH := $(DESTDIR)/$(PROGRAM)
-SRCS         := $(shell find $(CURDIR) -name '*.c' -type f)
-INCDIRS      += $(shell find $(CURDIR) -type f -name '*.h' -exec dirname {} \; | sort | uniq)
-EXT_INCDIRS  +=
+
+EXT_SRCS     := 
+SRCS         := $(shell find $(CURDIR) -name '*.c' -type f) $(EXT_SRCS)
+
+EXT_INCDIRS  :=
+INCDIRS      := $(shell find $(CURDIR) -type f -name '*.h' -exec dirname {} \; | sort | uniq) $(EXT_INCDIRS)
+
 OBJS         := $(SRCS:%.c=%.o)
 DEPS         := $(SRCS:%.c=%.d)
+
 CC           ?= clang
 CMN_CFLAGS   := -Wall -Wextra -Werror -std=c17
 CFLAGS       += -g3 -O0 $(CMN_CFLAGS) --coverage
 RELEASE_FLAGS = -O2 -DNDEBUG $(CMN_CFLAGS)
-LDFLAGS      += $(shell find $(CURDIR) -type f -name '*.so' -exec dirname {} \; | sort | uniq)
-EXT_LDFLAGS  +=
-LDLIBS       += $(patsubst lib%.so,%,$(notdir $(shell find $(CURDIR) -type f -name 'lib*.so')))
-EXT_LDLIBS   +=
+
+EXT_LDFLAGS  := 
+LDFLAGS      := $(shell find $(CURDIR) -type f -name '*.so' -exec dirname {} \; | sort | uniq) $(EXT_LDFLAGS)
+
+EXT_LDLIBS   :=
+LDLIBS       := $(patsubst lib%.so,%,$(notdir $(shell find $(CURDIR) -type f -name 'lib*.so'))) $(EXT_LDLIBS)
 
 all: run                            ## デフォルトタスク (run)
 
@@ -46,7 +56,7 @@ help:                               ## ヘルプを表示します
 # (ヘッダファイルが変更された場合に、それに依存するファイルが再コンパイルされるようにするため)
 # (1)
 %.d: %.c
-	$(CC) $(CFLAGS) -MM -MF $@ $< $(addprefix -I,$(INCDIRS)) $(addprefix -I,$(EXT_INCDIRS))
+	$(CC) $(CFLAGS) -MM -MF $@ $< $(addprefix -I,$(INCDIRS))
 
 # clean or help ターゲットが指定されていない場合のみ依存関係ファイルを include
 # (2)
@@ -57,13 +67,13 @@ endif
 # コンパイルステップ
 # (1)
 %.o: %.c %.d
-	$(CC) $(CFLAGS) -c $< -o $@ $(addprefix -I,$(INCDIRS)) $(addprefix -I,$(EXT_INCDIRS))
+	$(CC) $(CFLAGS) -c $< -o $@ $(addprefix -I,$(INCDIRS))
 
 # (2)
 $(OBJS): $(SRCS)
 
 # (3)
 $(PROGRAM): $(OBJS)
-	$(CC) $(CFLAGS) $(addprefix -L,$(LDFLAGS)) $(addprefix -L,$(EXT_LDFLAGS)) -o $(PROGRAM_PATH) $(OBJS) $(addprefix -l,$(LDLIBS)) $(addprefix -l,$(EXT_LDLIBS))
+	$(CC) $(CFLAGS) $(addprefix -L,$(LDFLAGS)) -o $(PROGRAM_PATH) $(OBJS) $(addprefix -l,$(LDLIBS))
 
 .PHONY: all pre-build build pre-release release clean run help debug install
