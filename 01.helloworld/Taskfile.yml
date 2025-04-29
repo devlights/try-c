@@ -10,7 +10,7 @@ vars:
   BUILD_DIR: ./build
   BIN_DIR: ./bin
 
-  EXECUTABLE: "{{.BIN_DIR}}/program"
+  EXECUTABLE: "{{.BIN_DIR}}/app"
 
 tasks:
   default:
