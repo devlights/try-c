@@ -41,7 +41,19 @@ int main(void) {
         // msg3 = "worldhello";
     }
 
-    printf("%s ==> 1:%s,2:%s,3:%s\n", msg, msg1, msg2, msg3);
+    // ポインタは変更不能、ポインタが指す先も変更不能
+    const char *const msg4 = msg;
+    {
+        // NG: 指し示す先のデータは読み取り専用 (const char *)
+        //   (式は変更可能な左辺値である必要がありますC/C++(137))
+        // msg4[0] = 'B';
+
+        // NG: msg4自体、つまり、ポインタは変更不可 (const msg4)
+        //   (式は変更可能な左辺値である必要がありますC/C++(137))
+        // msg4 = "Worldhello";
+    };
+
+    printf("%s ==> 1:%s,2:%s,3:%s,4:%s\n", msg, msg1, msg2, msg3, msg4);
 
     return EXIT_SUCCESS;
 }
