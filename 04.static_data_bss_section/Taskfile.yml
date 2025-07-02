@@ -1,0 +1,29 @@
+# https://taskfile.dev
+
+version: '3'
+
+env:
+  CC: gcc
+
+tasks:
+  default:
+    cmds:
+      - task: prepare
+      - task: build
+      - task: size
+  prepare:
+    cmds:
+      - mkdir -p bin
+    silent: true
+  build:
+    cmds:
+      - $CC -o bin/no_static no_static.c
+      - $CC -o bin/local_static local_static.c
+      - $CC -o bin/global_static_with_init global_static_with_init.c
+      - $CC -o bin/global_static_no_init global_static_no_init.c
+    silent: true
+  size:
+    dir: bin
+    cmds:
+      - size no_static local_static global_static_with_init global_static_no_init
+      - "ls -lh no_static local_static global_static_with_init global_static_no_init | awk '{print $5,$9}'"
