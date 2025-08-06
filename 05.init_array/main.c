@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define LENGTH (10)
 
-void p(const char * b, size_t len) {
+void p(const char *b, size_t len) {
     printf("-------------------------------------\n");
     {
         for (size_t i = 0; i < len; i++) {
@@ -18,17 +19,23 @@ int main(void) {
     char b1[LENGTH];       // 未初期化   (場合によってはオールゼロで表示される場合もある)
     char b2[LENGTH] = {};  // ゼロ初期化 (空の初期化リスト { }: 全ての要素を0で初期化)
     char b3[LENGTH] = {0}; // ゼロ初期化 (部分初期化 {0}: 最初の要素を0で明示的に初期化し、残りの要素は0で自動初期化)
+    char b4[LENGTH];       // ゼロ初期化 (memsetを使用して明示的に全て０にする)
+    memset(b4, 0, LENGTH);
 
     p(b1, LENGTH);
     p(b2, LENGTH);
     p(b3, LENGTH);
+    p(b4, LENGTH);
 
     return EXIT_SUCCESS;
 
     /*
     $ task
     -------------------------------------
-    -117 23 0 0 0 0 -55 -115 -122 -27
+    2 0 0 0 0 0 0 0 -1 -5
+    -------------------------------------
+    -------------------------------------
+    0 0 0 0 0 0 0 0 0 0
     -------------------------------------
     -------------------------------------
     0 0 0 0 0 0 0 0 0 0
