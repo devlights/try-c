@@ -21,4 +21,4 @@ clean:
 $(PROGRAM):$(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) $(OBJS) -o $(PROGRAM)
 
-.PHONY: all clean build
+.PHONY: all clean build run
