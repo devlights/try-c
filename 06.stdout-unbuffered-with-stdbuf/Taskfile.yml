@@ -1,0 +1,30 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP: app
+
+env:
+  CC: gcc
+  CFLAGS: -g3 -O0 -std=c99 -Wall -Wextra -Wno-unused-parameter
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - $CC $CFLAGS -o {{.APP}} {{.APP}}.c
+  run:
+    cmds:
+      # 普通に実行
+      - ./{{.APP}}
+      - cmd: echo '---------------------------------'
+        silent: true
+      # stdbufを設定してアンバッファリングにして実行
+      - ./{{.APP}} 1
+      - cmd: echo '---------------------------------'
+        silent: true
+      - ./{{.APP}} | tee out.txt
