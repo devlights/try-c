@@ -28,3 +28,6 @@ tasks:
       - cmd: echo '---------------------------------'
         silent: true
       - ./{{.APP}} | tee out.txt
+      - cmd: echo '---------------------------------'
+        silent: true
+      - ./{{.APP}} 1 | tee out.txt
