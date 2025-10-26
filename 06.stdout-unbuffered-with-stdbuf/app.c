@@ -24,12 +24,12 @@ int main(int argc, char *argv[]) {
         size_t buf_size = __fbufsize(stdout);
         printf("バッファサイズ: %zu bytes\n", buf_size);
 
-        int is_line_buffer = __flbf(stdout);
-        printf("ラインバッファ?: %s\n", __flbf(stdout) ? "はい" : "いいえ");
+        bool is_line_buffer = __flbf(stdout) != 0;
+        printf("ラインバッファ?: %s\n", is_line_buffer ? "はい" : "いいえ");
 
-        bool is_unbuffered = buf_size <= 1 && !is_line_buffer;
+        bool is_unbuffered = (buf_size <= 1 && !is_line_buffer);
         if (is_unbuffered) {
-            printf("状態: ✓ アンバッファ (_IONBF)\n");
+            printf("状態: アンバッファ (_IONBF)\n");
         } else if (is_line_buffer) {
             printf("状態: ラインバッファ (_IOLBF)\n");
         } else {
