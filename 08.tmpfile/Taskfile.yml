@@ -1,0 +1,13 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP: app
+
+tasks:
+  default:
+    cmds:
+      - rm -f {{.APP}}
+      - gcc -std=c11 -Wall -Wextra -g3 -O0 -o {{.APP}} {{.APP}}.c
+      - ./{{.APP}}
